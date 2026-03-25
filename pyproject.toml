@@ -1,0 +1,12 @@
+[project]
+name = "dynamic-tariffs-bulb"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "pywizlight>=0.6.3",
+    "requests>=2.32.5",
+    "rich>=14.3.3",
+]

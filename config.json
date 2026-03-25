@@ -1,0 +1,13 @@
+{
+  "bulb_ip": "192.168.0.46",
+  "max_wattage": 13,
+  "price_thresholds": {
+    "high": 3500,
+    "low": 1500
+  },
+  "api_refresh_interval": 300,
+  "api_endpoints": {
+    "current_price": "https://spotovaelektrina.cz/api/v1/price/get-actual-price-json",
+    "price_level": "https://spotovaelektrina.cz/v1/price/get-actual-price-level"
+  }
+}
