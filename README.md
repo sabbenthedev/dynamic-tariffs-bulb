@@ -10,15 +10,8 @@ the app runs in a terminal and shows you the current electricity price. it check
 
 you need:
 - python 3.14 or later
-- smart bulb on your network (WIZ type, default IP 192.168.0.46)
+- smart bulb on your network
 - internet to reach the energy API
-
-install:
-```bash
-python -m venv .venv
-source .venv/Scripts/activate  # on Windows use: .venv\Scripts\activate
-pip install httpx pywizlight rich
-```
 
 database is created automatically. nothing else to set up.
 
@@ -34,7 +27,7 @@ edit config.json to change settings:
 
 ```bash
 cd src
-python dashboard.py
+uv run dashboard.py 
 ```
 
 press ctrl+c to stop. your session data stays in the database.
@@ -45,10 +38,16 @@ the dashboard shows:
 - current price per MWh
 - tariff level: VYSOKÝ TARIF (expensive), BĚŽNÝ PROVOZ (normal), NÍZKÝ TARIF (cheap)
 - if bulb is on or off
-- total energy used
+- total energy used since start
 - total money spent
 
 the app checks the bulb every 2 seconds. gets new prices every 5 minutes.
+
+example dashboard:
+
+![dashboard example](dashboard_example.png)
+
+the top side shows energy market prices. the bottom side shows your bulb. when prices are high, it warns you to save energy. the energy and cost numbers keep adding up across restarts.
 
 ## how data is stored
 
@@ -60,16 +59,8 @@ when you start the app, it loads the total cost from the database. nothing gets 
 
 ## if something goes wrong
 
-bulb not working? check the IP in config.json matches your bulb. make sure bulb is on your network.
+bulb not working? check the IP in config.json matches your actual bulb. make sure bulb is on your network.
 
 API not responding? check you have internet. could be the website is down.
 
-database broken? delete energy_data.db and restart. it will recreate though sadly hoho.
-
-## files explained
-
-dashboard.py - the main app, shows the interface, fetches prices and bulb data
-db.py - database code, saves and loads data from SQLite
-config.json - settings file
-energy_data.db - where the data is stored (created on first run)
-
+database broken? delete energy_data.db and restart. it will recreate it though sadly hoho
