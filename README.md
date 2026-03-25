@@ -49,6 +49,10 @@ example dashboard:
 
 the top side shows energy market prices. the bottom side shows your bulb. when prices are high, it warns you to save energy. the energy and cost numbers keep adding up across restarts.
 
+after 3 hours and half:
+
+![dashboard example2](dashboard_example2.png)
+
 ## how data is stored
 
 db.py handles saving data and has two tables:
