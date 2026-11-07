@@ -2,7 +2,7 @@ import asyncio
 
 from pywizlight import PilotBuilder, wizlight
 
-bulb_ip = "192.168.0.46"
+bulb_ip = "YOUR_IP_ADDRESS"
 
 
 async def test_bulb():
